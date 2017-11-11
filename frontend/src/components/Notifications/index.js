@@ -13,7 +13,7 @@ class Notifications extends Component {
 
   handleClose = () => this.setState({open: false});
 
-  render() {
+  render(props) {
     const logo = <img src="../../../public/logo-black.png" />
     return (
       <div className="Notifications">
