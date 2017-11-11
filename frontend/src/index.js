@@ -6,6 +6,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import registerServiceWorker from './registerServiceWorker';
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color:'#c34433',
+  },
 });
 const Page = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
