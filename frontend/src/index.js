@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App/';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import registerServiceWorker from './registerServiceWorker';
-
-ReactDOM.render(<App />, document.getElementById('root'));
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+const muiTheme = getMuiTheme({
+});
+const Page = () => (
+  <MuiThemeProvider muiTheme={muiTheme}>
+    <App />
+  </MuiThemeProvider>
+);
+ReactDOM.render(<Page />, document.getElementById('root'));
 registerServiceWorker();
