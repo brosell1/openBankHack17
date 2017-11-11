@@ -6,12 +6,14 @@ const favicon = require(`serve-favicon`);
 const logger = require(`morgan`);
 const cookieParser = require(`cookie-parser`);
 const bodyParser = require(`body-parser`);
-// const mongoose = require(`mongoose`); // uncomment for mongoose
+const mongoose = require(`mongoose`); // uncomment for mongoose
 
 // my modules
 const config = require(`./config/config.js`);
 const index = require(`./routes/index`);
-const users = require(`./routes/users`);
+const teamMembers = require(`./routes/teammembers`);
+const roles = require(`./routes/roles`);
+const notifications = require(`./routes/notifications`);
 
 // connect to database
 // uncomment for mongoose
@@ -33,7 +35,9 @@ app.use(cookieParser()); //helps you do stuff across sessions
 app.use(express.static(path.join(__dirname, `public`)));
 
 app.use(`/`, index);
-app.use(`/users`, users);
+app.use(`/teammembers`, teamMembers);
+app.use(`/roles`, roles);
+app.use(`/notifications`, notifications);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -50,7 +54,7 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500);
-  res.render(`error`);
+  res.json({error:err});
 });
 
 module.exports = app;
