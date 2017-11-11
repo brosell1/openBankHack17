@@ -5,7 +5,7 @@ class NewBeneficiary extends Component {
   render() {
     return (
       <div className="NewBeneficiary">
-        <Notifications pageTitle="New Beneficiary"/>
+        <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.handleLogoutClick} pageTitle="New Beneficiary"/>
       </div>
     );
   }

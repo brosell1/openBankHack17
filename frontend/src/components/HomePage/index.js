@@ -5,7 +5,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className="HomePage">
-        <Notifications pageTitle="Home"/>
+        <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.handleLogoutClick} pageTitle="Home"/>
       </div>
     );
   }

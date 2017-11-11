@@ -5,7 +5,7 @@ class BulkTransactions extends Component {
   render() {
     return (
       <div className="BulkTransactions">
-        <Notifications pageTitle="Bulk Transactions"/>
+        <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.handleLogoutClick} pageTitle="Bulk Transactions"/>
       </div>
     );
   }

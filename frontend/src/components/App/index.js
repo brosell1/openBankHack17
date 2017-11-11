@@ -8,7 +8,6 @@ import NewAuthLevel from '../NewAuthLevel';
 import NewBeneficiary from '../NewBeneficiary';
 import NewTeamMember from '../NewTeamMember';
 import NewTransaction from '../NewTransaction';
-import Notifications from '../Notifications'
 
 class App extends Component {
   constructor(props) {
@@ -31,14 +30,22 @@ class App extends Component {
        pendingNotifications: [],
        ledgers: [],
        transactions: [],
+       beneficiaries: []
      };
    }
 
-   handleReturn = (event, page) => {
+   handleReturn = (event) => {
      event.preventDefault();
-     this.setState(({
-       [page]:false
-     }));
+     this.setState((prevState) => ({
+       isLoggedIn: true,
+       isAdmin: prevState.isAdmin,
+       listTransactions: false,
+       newTransaction: false,
+       newBulkTransaction: false,
+       newTeamMember: false,
+       newBeneficiary: false,
+       newAuthLevel: false,
+    }));
    }
 
    handleInputChange(event) {
@@ -68,7 +75,7 @@ class App extends Component {
        pendingNotifications: [],
        ledgers: [],
        transactions: [],
-
+       beneficiaries: []
     });
    }
 
@@ -114,7 +121,7 @@ class App extends Component {
 
    render() {
      const {isLoggedIn, isAdmin, listTransactions, newTransaction, newBulkTransaction, newTeamMember, newBeneficiary, newAuthLevel, error} = this.state
-
+return <NewTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} beneficiaries={this.state.beneficiaries} ledgers={this.state.ledgers}/>
      // login page, wrong password
      if (!isLoggedIn && error) {
        return (
@@ -133,43 +140,43 @@ class App extends Component {
      // create a new user page
      if (isLoggedIn && isAdmin && newTeamMember) {
        return (
-         <NewTeamMember />
+         <NewTeamMember handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
      // create a new auth level
      if (isLoggedIn && isAdmin && newAuthLevel) {
        return (
-         <NewAuthLevel />
+         <NewAuthLevel handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
      // create new transactions
      if (isLoggedIn && newTransaction) {
        return (
-         <NewTransaction />
+         <NewTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
      // create new bulk transaction
      if (isLoggedIn && newBulkTransaction) {
        return (
-         <BulkTransaction />
+         <BulkTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
      // new newBeneficiary
      if (isLoggedIn && newBeneficiary) {
        return (
-         <NewBeneficiary />
+         <NewBeneficiary handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
      // transaction list
      if (isLoggedIn && listTransactions) {
        return (
-         <LedgerTransactions />
+         <LedgerTransactions handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
      // new homepage
      if (isLoggedIn) {
        return (
-         <HomePage />
+         <HomePage handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
    }
