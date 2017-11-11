@@ -37,7 +37,7 @@ router.get('/:username', (req, res) => {
 });
 
 router.put('/:username', (req, res) => {
-    newstaff.findOneAndUpdate({username:req.params.username}, req.body, function(err, response){
+    Staff.findOneAndUpdate({username:req.params.username}, req.body, function(err, response){
       if(err) {
         res.json({error:err});
       }
@@ -45,5 +45,14 @@ router.put('/:username', (req, res) => {
     })
 });
 
+router.post('/:username', (req, res) => {
+  Staff.findOneAndRemove({username:req.params.username}, function(err, response){
+    if(err) {
+      res.json({error:err});
+    }
+    res.json({payload:response});
+    }
+  });
+});
 
 module.exports = router;
