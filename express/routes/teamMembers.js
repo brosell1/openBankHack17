@@ -1,10 +1,10 @@
-const Staff = require(`../models/StaffModel.js`);
+const TeamMember = require(`../models/TeamMembersModel.js`);
 const express = require(`express`);
 const router = express.Router();
 
 /* GET users listing. */
 router.get(`/`, (req, res) => {
-  Staff.find(function(err, response) {
+  TeamMember.find(function(err, response) {
     if(err) {
       res.json({error:err});
     }
@@ -13,13 +13,13 @@ router.get(`/`, (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    var newstaff = new Staff();
-    newstaff.username = req.body.username;
-    newstaff.password = req.body.password;
-    newstaff.companyId = req.body.companyId;
-    newstaff.authLevel = req.body.authLevel;
-    newstaff.admin = req.body.admin;
-    newstaff.save(function(err, response){
+    var newTeamMember = new TeamMember();
+    newTeamMember.username = req.body.username;
+    newTeamMember.password = req.body.password;
+    newTeamMember.companyId = req.body.companyId;
+    newTeamMember.authLevel = req.body.authLevel;
+    newTeamMember.admin = req.body.admin;
+    newTeamMember.save(function(err, response){
       if(err) {
         res.json({error:err});
       }
@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:username', (req, res) => {
-  Staff.findOne({username:req.params.username}, function(err, response) {
+  TeamMember.findOne({username:req.params.username}, function(err, response) {
     if(err) {
       res.json({error:err});
     }
@@ -37,7 +37,7 @@ router.get('/:username', (req, res) => {
 });
 
 router.put('/:username', (req, res) => {
-    Staff.findOneAndUpdate({username:req.params.username}, req.body, function(err, response){
+    TeamMember.findOneAndUpdate({username:req.params.username}, req.body, function(err, response){
       if(err) {
         res.json({error:err});
       }
@@ -46,7 +46,7 @@ router.put('/:username', (req, res) => {
 });
 
 router.delete('/', (req, res) => {
-  Staff.findOneAndRemove({username:req.params.username}, function(err, response){
+  TeamMember.findOneAndRemove({username:req.params.username}, function(err, response){
     if(err) {
       res.json({error:err});
     }

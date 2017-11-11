@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
-var StaffSchema = {
+var TeamMemberSchema = {
   "username":String ,
   "password":String ,
   "companyId":String,
@@ -12,7 +12,7 @@ var StaffSchema = {
   };
 
 
-StaffSchema.pre('save', function(next) {
+TeamMemberSchema.pre('save', function(next) {
   var user = this;
   bcrypt.hash(user.password, 10, function(err, hash) {
     if (err) {
@@ -23,7 +23,7 @@ StaffSchema.pre('save', function(next) {
   })
 });
 
-StaffSchema.statics.authenticate = function(username, password, callback) {
+TeamMemberSchema.statics.authenticate = function(username, password, callback) {
   User.findOne({username: username}).exec(function(err, user) {
     if (err) {
       return callback(err)
@@ -41,6 +41,6 @@ StaffSchema.statics.authenticate = function(username, password, callback) {
     })
   });
 
-var Staff = mongoose.model('staff', StaffSchema);
+var TeamMember = mongoose.model('teamMembers', TeamMemberSchema);
 
-module.exports = Staff;
+module.exports = TeamMember;
