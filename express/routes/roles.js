@@ -26,8 +26,8 @@ router.post('/', (req, res) => {
     })
 });
 
-router.get('/:companyId/:roleName', (req, res) => {
-  Role.findOne({companyId:req.params.companyId, Name:req.params.roleName}, function(err, response) {
+router.get('/:id', (req, res) => {
+  Role.findOne({_id:req.params.id}, function(err, response) {
     if(err) {
       res.json({error:err});
     }
@@ -35,8 +35,8 @@ router.get('/:companyId/:roleName', (req, res) => {
   });
 });
 
-router.put('/:companyId:/roleName', (req, res) => {
-    Role.findOneAndUpdate({companyId:req.params.companyId, Name:req.params.roleName}, req.body, function(err, response){
+router.put('/:id', (req, res) => {
+    Role.findOneAndUpdate({_id:req.params.id}, req.body, function(err, response){
       if(err) {
         res.json({error:err});
       }
@@ -44,8 +44,8 @@ router.put('/:companyId:/roleName', (req, res) => {
     })
 });
 
-router.post('/:companyId/:roleName', (req, res) => {
-  Role.findOneAndRemove({companyId:req.params.companyId, Name:req.params.roleName}, function(err, response){
+router.delete('/:id', (req, res) => {
+  Role.findOneAndRemove({_id:req.params.id}, function(err, response){
     if(err) {
       res.json({error:err});
     }
