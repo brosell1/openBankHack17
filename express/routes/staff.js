@@ -45,7 +45,7 @@ router.put('/:username', (req, res) => {
     })
 });
 
-router.post('/:username', (req, res) => {
+router.delete('/', (req, res) => {
   Staff.findOneAndRemove({username:req.params.username}, function(err, response){
     if(err) {
       res.json({error:err});
