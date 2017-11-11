@@ -8,6 +8,7 @@ import NewAuthLevel from '../NewAuthLevel';
 import NewBeneficiary from '../NewBeneficiary';
 import NewTeamMember from '../NewTeamMember';
 import NewTransaction from '../NewTransaction';
+import Notifications from '../Notifications'
 
 class App extends Component {
   constructor(props) {
@@ -113,6 +114,7 @@ class App extends Component {
 
    render() {
      const {isLoggedIn, isAdmin, listTransactions, newTransaction, newBulkTransaction, newTeamMember, newBeneficiary, newAuthLevel, error} = this.state
+
      // login page, wrong password
      if (!isLoggedIn && error) {
        return (
