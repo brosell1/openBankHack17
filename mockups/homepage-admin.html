@@ -11,10 +11,9 @@
       <tr>
         <td id="notifications-bar" valign="top">
           <h1>Notifications</h1>
-          <ul>
-            <li>
-              <span>Joanne Jenkins's</span> transaction #693 is pending your approval
-            </li>
+          <button class="btn notif-button" onclick="yourTrans()">Your<br />Transactions</button>
+          <button class="btn notif-button" onclick="transAwaiting()">Transactions<br />Awaiting Approval</button>
+          <ul id="list">
             <li>
               Your transaction #554 is pending approval
             </li>
@@ -39,7 +38,7 @@
               <tbody>
                 <tr>
                   <td>
-                    Horse Finance
+                    <a href=#>Horse Finance</a>
                   </td>
                   <td>
                     €2009
@@ -47,7 +46,7 @@
                 </tr>
                 <tr>
                   <td>
-                    Great White Loans
+                    <a href=#>Great White Loans</a>
                   </td>
                   <td style="color: red">
                     -€230
@@ -57,9 +56,10 @@
             </table>
           </div>
           <div id="buttons">
-            <button class="btn btn-lg btn-secondary">New Transaction</button>
-            <button class="btn btn-lg btn-secondary">New Bulk Transaction</button>
-            <button class="btn btn-lg btn-secondary">New Team Member</button>
+            <button class="btn btn-lg">New Transaction</button>
+            <button class="btn btn-lg">New Bulk Transaction</button>
+            <button class="btn btn-lg">New Beneficiary</button>
+            <button class="btn btn-lg">New Team Member</button>
           </div>
         </td>
       </tr>
@@ -67,5 +67,12 @@
     <p id="powered">
       Powered by RailsBank
     </p>
+
+    <script>
+      const yourTrans = () => {
+        document.getElementById("list").innerHTML = "<li>Your transaction #554 is pending approval</li><li>Your transaction #671 has been rejected <span>Imran Khan</span></li><li>Your transaction #449 has been approved by <span>Elizabeth Windsor</span></li>"
+      }
+      const transAwaiting = () => document.getElementById("list").innerHTML = "<li><span>Joanne Jenkins's</span> transaction #693 is pending your approval</li>"
+    </script>
   </body>
 </html>

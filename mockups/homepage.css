@@ -13,7 +13,16 @@
   margin: 15vh 5vw 5vh;
 }
 
+.notif-button {
+  width: 8vw;
+  margin-left: 1vw;
+  margin-right: 0vw;
+  font-size: 80%;
+}
+
 img {
+  height: 80px;
+  width: auto;
   position: fixed;
   left: 21vw;
   top: 1vh;
@@ -55,11 +64,11 @@ button {
 }
 
 #buttons {
-  margin-left: 17vw;
+  margin-left: 11vw;
 }
 
 #buttons-not-admin {
-  margin-left: 25vw;
+  margin-left: 18vw;
 }
 
 #powered {
