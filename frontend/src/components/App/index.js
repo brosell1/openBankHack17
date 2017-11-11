@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import BulkTransaction from '../BulkTransaction';
+import BulkTransaction from '../BulkTransactions';
 import HomePage from '../HomePage';
 import LedgerTransactions from '../LedgerTransactions';
 import Login from '../Login';
@@ -21,7 +21,7 @@ class App extends Component {
        newTeamMember: false,
        newBeneficiary: false,
        newAuthLevel: false,
-       error: false
+       error: false,
        user: '',
        password: '',
        userDetails: {},
@@ -48,9 +48,8 @@ class App extends Component {
        [name]: value
      });
    }
- }
 
-  handleLogoutClick() {
+  handleLogoutClick = () => {
      this.setState({
        isLoggedIn: false,
        isAdmin: false,
@@ -85,14 +84,14 @@ class App extends Component {
        } )
      })
      .then(response => response.json())
-     .then(value => value.payload ? this.setState({
-       isLoggedIn : !prevstate.isLoggedIn
-     }): this.setState((prevstate) => {
-       error : !prevstate.error}))
+     .then(value => value.payload ? this.setState(prevState => ({
+       isLoggedIn : !prevState.isLoggedIn
+     })): this.setState((prevState) => ({
+       error: !prevState.error})))
    }
 
 
-    getLedgers() => {
+    getLedgers = () => {
        fetch(`play.railsbank.com/v1/customer/endusers/${this.state.user.companyId}`)
        .then(response => response.json())
        .then(value => {
@@ -101,7 +100,7 @@ class App extends Component {
        .catch((err) => console.log(err))
    }
 
-   getTransactions(ledgerId) => {
+   getTransactions = (ledgerId) => {
       ledgerId.forEach((element) => {
       fetch(`play.railsbank.com/v1/customer/ledgers/${element}`)
       .then(response => response.json())
@@ -113,7 +112,7 @@ class App extends Component {
    }
 
    render() {
-     const {isLoggedIn, isAdmin, listTransactions, newTransaction, newBulkTransaction, newTeamMember, newBeneficiary, newAuthLevel, error} = this.state;
+     const {isLoggedIn, isAdmin, listTransactions, newTransaction, newBulkTransaction, newTeamMember, newBeneficiary, newAuthLevel, error} = this.state
      // login page, wrong password
      if (!isLoggedIn && error) {
        return (
@@ -173,3 +172,5 @@ class App extends Component {
      }
    }
  }
+
+export default App;
