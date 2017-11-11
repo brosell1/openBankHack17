@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Homepage (admin)</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="homepage.css" type="text/css">
+  </head>
+  <body>
+    <table id="body">
+      <tr>
+        <td id="notifications-bar" valign="top">
+          <h1>Notifications</h1>
+          <ul>
+            <li>
+              <span>Joanne Jenkins's</span> transaction #693 is pending your approval
+            </li>
+            <li>
+              Your transaction #554 is pending approval
+            </li>
+            <li>
+              Your transaction #671 has been rejected <span>Imran Khan</span>
+            </li>
+            <li>
+              Your transaction #449 has been approved by <span>Elizabeth Windsor</span>
+            </li>
+          </ul>
+        </td>
+        <td valign="top">
+          <img src="logo-black.png" />
+          <div id="account-box">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Account Name</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Horse Finance
+                  </td>
+                  <td>
+                    €2009
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Great White Loans
+                  </td>
+                  <td style="color: red">
+                    -€230
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="buttons">
+            <button class="btn btn-lg btn-secondary">New Transaction</button>
+            <button class="btn btn-lg btn-secondary">New Bulk Transaction</button>
+            <button class="btn btn-lg btn-secondary">New Team Member</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <p id="powered">
+      Powered by RailsBank
+    </p>
+  </body>
+</html>
