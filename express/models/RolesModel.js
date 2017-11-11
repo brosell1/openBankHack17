@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-var RoleSchema = {
+var RolesSchema = {
   "name":String,
   "maxAmount":Number ,
   "maxTransactions":Number ,
