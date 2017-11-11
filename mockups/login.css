@@ -1,0 +1,19 @@
+body {
+  height: 100vh;
+  background-color: #c34433;
+}
+
+div {
+  text-align: center;
+  margin: 35vh auto;
+}
+
+img {
+  height: 100px;
+  width: auto;
+}
+ #powered {
+   position: fixed;
+   right: 10px;
+   bottom: 0px;
+ }
