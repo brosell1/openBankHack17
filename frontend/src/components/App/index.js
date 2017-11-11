@@ -40,7 +40,7 @@ class App extends Component {
      }));
    }
 
-   handleInputChange(event) {
+   handleInputChange = (event) => {
      const target = event.target,
            value = target.value,
            name = target.name;
@@ -79,7 +79,7 @@ class App extends Component {
        },
        method: 'POST',
        body: JSON.stringify({
-         user: this.state.user,
+         username: this.state.user,
          password: this.state.password
        } )
      })
@@ -125,7 +125,7 @@ class App extends Component {
      // login page
      if (!isLoggedIn) {
        return (
-         <Login />
+         <Login onChange={this.handleInputChange} onClick={this.handleLoginClick} />
        )
      }
      // create a new user page
