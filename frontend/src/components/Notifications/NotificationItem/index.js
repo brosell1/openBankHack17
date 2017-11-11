@@ -4,6 +4,7 @@ class NotificationItem extends Component {
   render() {
     return (
       <div className="NotificationItem">
+        hello
       </div>
     );
   }
