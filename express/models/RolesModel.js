@@ -7,6 +7,6 @@ var RolesSchema = {
   "companyId":String
   };
 
-var Role = mongoose.model('roles', StaffSchema);
+var Roles = mongoose.model('roles', RolesSchema);
 
 module.exports = Roles;

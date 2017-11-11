@@ -51,7 +51,6 @@ router.delete('/', (req, res) => {
       res.json({error:err});
     }
     res.json({payload:response});
-    }
   });
 });
 

@@ -55,7 +55,6 @@ router.delete('/:id', (req, res) => {
       res.json({error:err});
     }
     res.json({payload:response});
-    }
   });
 });
 
