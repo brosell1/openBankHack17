@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Notification.findOne({"_id":req.params.companyId}, function(err, response) {
+  Notification.findOne({_id:req.params.companyId}, function(err, response) {
     if(err) {
       res.json({error:err});
     }
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    Notification.findOneAndUpdate({"_id":req.params.id}, req.body, function(err, response){
+    Notification.findOneAndUpdate({_id:req.params.id}, req.body, function(err, response){
       if(err) {
         res.json({error:err});
       }
@@ -49,7 +49,7 @@ router.put('/:id', (req, res) => {
     })
 });
 
-router.post('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   Notification.findOneAndRemove({_id:req.params.id}, function(err, response){
     if(err) {
       res.json({error:err});
