@@ -44,8 +44,8 @@ router.put('/:id', (req, res) => {
     })
 });
 
-router.delete('/:id', (req, res) => {
-  Role.findOneAndRemove({_id:req.params.id}, function(err, response){
+router.delete('/', (req, res) => {
+  Role.findOneAndRemove({_id:req.body._id}, function(err, response){
     if(err) {
       res.json({error:err});
     }

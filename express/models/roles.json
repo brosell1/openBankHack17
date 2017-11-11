@@ -1,0 +1,28 @@
+{
+    "payload": [
+        {
+            "_id": "5a06edd0aa51ab1320e8b123",
+            "companyId": "5a062174-11af-413b-b993-d18242323034",
+            "maxTransactions": 5,
+            "maxAmount": 20,
+            "name": "Junior",
+            "__v": 0
+        },
+        {
+            "_id": "5a06ee60aa51ab1320e8b124",
+            "companyId": "5a062174-11af-413b-b993-d18242323034",
+            "maxTransactions": 10,
+            "maxAmount": 100,
+            "name": "Senior",
+            "__v": 0
+        },
+        {
+            "_id": "5a06f23c5a61391bbc262f75",
+            "companyId": "5a062174-11af-413b-b993-d18242323034",
+            "maxTransactions": 20,
+            "maxAmount": 200,
+            "name": "Boss",
+            "__v": 0
+        }
+    ]
+}

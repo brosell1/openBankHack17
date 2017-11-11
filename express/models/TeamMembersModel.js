@@ -11,6 +11,9 @@ var TeamMemberSchema = {
   "admin":Boolean
   };
 
+  var TeamMember = mongoose.model('teamMembers', TeamMemberSchema);
+
+  module.exports = TeamMember;
 
 // TeamMemberSchema.pre('save', function(next) {
 //   var user = this;
@@ -41,7 +44,3 @@ var TeamMemberSchema = {
 //     })
 //   });
 // }
-
-var TeamMember = mongoose.model('teamMembers', TeamMemberSchema);
-
-module.exports = TeamMember;

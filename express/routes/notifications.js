@@ -49,8 +49,8 @@ router.put('/:id', (req, res) => {
     })
 });
 
-router.delete('/:id', (req, res) => {
-  Notification.findOneAndRemove({_id:req.params.id}, function(err, response){
+router.delete('/', (req, res) => {
+  Notification.findOneAndRemove({_id:req.params._id}, function(err, response){
     if(err) {
       res.json({error:err});
     }

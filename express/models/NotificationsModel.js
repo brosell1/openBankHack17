@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 var NotificationsSchema = {
   "companyId":String,
   "minAuthLevel":String ,
-  "ibanTo":String,
-  "ibanFrom":String,
+  "LedgerUserID":String,
+  "beneficiariesID":String,
   "amount":Number,
   "date":Number,
   "username":String,
