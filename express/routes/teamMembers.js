@@ -46,12 +46,11 @@ router.put('/:username', (req, res) => {
 });
 
 router.delete('/', (req, res) => {
-  TeamMember.findOneAndRemove({username:req.params.username}, function(err, response){
+  TeamMember.findOneAndRemove({_id:req.body._id}, function(err, response){
     if(err) {
       res.json({error:err});
     }
     res.json({payload:response});
-    }
   });
 });
 

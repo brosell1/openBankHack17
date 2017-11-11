@@ -1,0 +1,29 @@
+[
+        {
+            "_id": "5a06f40ca63cdc410cd9fec2",
+            "admin": false,
+            "authLevel": "5a06edd0aa51ab1320e8b123",
+            "companyId": "5a062174-11af-413b-b993-d18242323034",
+            "password": "joanne",
+            "username": "joanne@phd.com",
+            "__v": 0
+        },
+        {
+            "_id": "5a06f497a925950c90c78413",
+            "admin": true,
+            "authLevel": "5a06ee60aa51ab1320e8b124",
+            "companyId": "5a062174-11af-413b-b993-d18242323034",
+            "password": "imran",
+            "username": "imran@phd.com",
+            "__v": 0
+        },
+        {
+            "_id": "5a06f4c7a925950c90c78414",
+            "admin": true,
+            "authLevel": "5a06f23c5a61391bbc262f75",
+            "companyId": "5a062174-11af-413b-b993-d18242323034",
+            "password": "elizabeth",
+            "username": "elizabeth@phd.com",
+            "__v": 0
+        }
+    ]

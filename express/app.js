@@ -11,7 +11,7 @@ const mongoose = require(`mongoose`); // uncomment for mongoose
 // my modules
 const config = require(`./config/config.js`);
 const index = require(`./routes/index`);
-const teamMembers = require(`./routes/teamMembers`);
+const teamMembers = require(`./routes/teammembers`);
 const roles = require(`./routes/roles`);
 const notifications = require(`./routes/notifications`);
 
