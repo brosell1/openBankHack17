@@ -11,7 +11,9 @@ const mongoose = require(`mongoose`); // uncomment for mongoose
 // my modules
 const config = require(`./config/config.js`);
 const index = require(`./routes/index`);
-const users = require(`./routes/users`);
+const teamMembers = require(`./routes/teamMembers`);
+const roles = require(`./routes/roles`);
+const notifications = require(`./routes/notifications`);
 
 // connect to database
 // uncomment for mongoose
@@ -33,7 +35,9 @@ app.use(cookieParser()); //helps you do stuff across sessions
 app.use(express.static(path.join(__dirname, `public`)));
 
 app.use(`/`, index);
-app.use(`/users`, users);
+app.use(`/teammembers`, teamMembers);
+app.use(`/roles`, roles);
+app.use(`/notifications`, notifications);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
