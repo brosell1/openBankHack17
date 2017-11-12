@@ -6,7 +6,7 @@ class BulkTransactions extends Component {
   render() {
     return (
       <div className="BulkTransactions">
-        <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.handleLogoutClick} pageTitle="Bulk Transactions"/>
+        <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.props.handleLogoutClick} pageTitle="Bulk Transactions"/>
         <input type='file' multiple/>
         <textarea></textarea>
         <button>Approve</button>
