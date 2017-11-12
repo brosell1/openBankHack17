@@ -13,11 +13,11 @@ class App extends Component {
   constructor(props) {
      super(props);
      this.state = {
-       isLoggedIn: false,
+       isLoggedIn: true,
        isAdmin: false,
        listTransactions: false,
        newTransaction: false,
-       newBulkTransaction: false,
+       newBulkTransaction: true,
        newTeamMember: false,
        newBeneficiary: false,
        newAuthLevel: false,
