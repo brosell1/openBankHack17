@@ -67,11 +67,11 @@ class App extends Component {
        newBeneficiary: false,
        newAuthLevel: false,
        snackBar: false,
+    }));
+  }
 
   handleGoToList = (e) => {
     this.setState({listId: e, listTransactions: true});
-  }
-    }));
   }
 
   handleInputChange = (event) => {
@@ -231,7 +231,7 @@ class App extends Component {
       }
       // new homepage, done
       if (isLoggedIn) {
-        return (<HomePage handleSnackBar={this.state.snackBar} handleGoToList={this.handleGoToList} onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<HomePage snackBar={this.state.snackBar} handleGoToList={this.handleGoToList} onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
     }
   }
