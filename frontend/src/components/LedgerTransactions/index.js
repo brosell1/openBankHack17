@@ -5,7 +5,7 @@ class LedgerTransactions extends Component {
   render() {
     return (
       <div className="LedgerTransactions">
-        <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.handleLogoutClick} pageTitle="Transactions"/>
+        <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.props.handleLogoutClick} pageTitle="Transactions"/>
       </div>
     );
   }

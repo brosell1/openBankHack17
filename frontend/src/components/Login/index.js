@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import LoginForm from './LoginForm'
-import LoginButton from './LogInButton'
+import LoginButton from './LoginButton'
 import Paper from 'material-ui/Paper';
 
 
 const styles = {
   root: {
     display: 'flex',
-    'align-items': 'center',
-    'justify-content': 'flex-end',
-    'flex-direction': 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    flexDirection: 'column',
     padding: '35vh',
     backgroundColor: '#c34433'
   },
