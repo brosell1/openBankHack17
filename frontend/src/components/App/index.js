@@ -34,6 +34,12 @@ class App extends Component {
      };
    }
 
+   handleGoTo = (page) => {
+     this.setState({
+       [page] : true
+    });
+   }
+
    handleReturn = (event) => {
      event.preventDefault();
      this.setState((prevState) => ({
@@ -121,7 +127,6 @@ class App extends Component {
 
    render() {
      const {isLoggedIn, isAdmin, listTransactions, newTransaction, newBulkTransaction, newTeamMember, newBeneficiary, newAuthLevel, error} = this.state
-     // return <NewTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} beneficiaries={this.state.beneficiaries} ledgers={this.state.ledgers}/>
 
      // login page, wrong password
      if (!isLoggedIn && error) {
@@ -153,7 +158,7 @@ class App extends Component {
      // create new transactions
      if (isLoggedIn && newTransaction) {
        return (
-         <NewTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
+         <NewTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} beneficiaries={this.state.beneficiaries} ledgers={this.state.ledgers}/>
        )
      }
      // create new bulk transaction
@@ -177,7 +182,7 @@ class App extends Component {
      // new homepage
      if (isLoggedIn) {
        return (
-         <HomePage handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
+         <HomePage onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
    }

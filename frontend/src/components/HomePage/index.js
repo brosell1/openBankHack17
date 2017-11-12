@@ -8,9 +8,9 @@ class HomePage extends Component {
   render() {
     return (
       <div className="HomePage">
-        <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.handleLogoutClick} pageTitle="Home"/>
+        <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.props.handleLogoutClick} pageTitle="Home"/>
         <AccountsBox />
-        <ButtonBar />
+        <ButtonBar isAdmin={this.props.isAdmin} onClick={this.props.onClick}/>
       </div>
     );
   }
