@@ -8,7 +8,7 @@ class LoginForm extends Component {
       <div className="LoginForm">
         <TextField hintText='Username' name='user' onChange={this.props.onChange} />
         <br />
-        <TextField hintText='Password' name='password' onChange={this.props.onChange} />
+        <TextField type="password" hintText='Password' name='password' onChange={this.props.onChange} />
       </div>
     );
   }

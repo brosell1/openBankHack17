@@ -27,9 +27,12 @@ class NewTransactionForm extends Component {
   render(props) {
 
     const items = [
-      <MenuItem key={1} value={1} primaryText="Bumbo" />,
-      <MenuItem key={2} value={2} primaryText="Dumbo" />,
-      <MenuItem key={3} value={3} primaryText="Rumbo" />,
+      <MenuItem key={1} value={1} primaryText="Example-1" />,
+      <MenuItem key={2} value={2} primaryText="Example-2" />,
+      <MenuItem key={3} value={3} primaryText="Example-3" />,
+      <MenuItem key={4} value={4} primaryText="Example-4" />,
+      <MenuItem key={5} value={5} primaryText="Example-5" />,
+      <MenuItem key={6} value={6} primaryText="Example-6" />,
     ]
     // const beneficiaries = this.props.beneficiaries.map((item, ind) => {
     //   <MenuItem value={item._id} primaryText={item.name} key={ind} />
@@ -44,7 +47,7 @@ class NewTransactionForm extends Component {
                   {/* {beneficiaries} */}
                   {items}
                 </SelectField>
-                <TextField style={style.valign} hintText="Amount"></TextField>
+                <TextField type="number" style={style.valign} hintText="Amount"></TextField>
                 <SelectField child={style.valign} floatingLabelText="Account To">
                   {/* {accounts} */}
                   {/* <MenuItem primaryText="bumbo" />

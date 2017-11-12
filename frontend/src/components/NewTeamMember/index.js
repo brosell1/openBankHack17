@@ -5,6 +5,9 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Checkbox from 'material-ui/Checkbox';
 
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
 const styles = {
   display: 'block',
   'margin-bottom': '.5em',
@@ -27,8 +30,13 @@ class NewTeamMember extends Component {
         <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.props.handleLogoutClick} pageTitle="New Team Member"/>
         <div style={containerStyle}>
           <TextField type='email' hintText="Username" style={styles}/>
-          <TextField type='text' hintText="Password" style={styles}/>
+          <TextField type='password' hintText="Password" style={styles}/>
 
+          <SelectField>
+            <MenuItem primaryText='Junior'/>
+            <MenuItem primaryText='Boss'/>
+            <MenuItem primaryText='Senior'/>
+          </SelectField>
           <Checkbox label="Admin?" style={styles}/>
           <RaisedButton onClick={this.props.handleSnackBar} fullWidth backgroundColor="#c34433" labelColor="#fff" label="Create" style={buttonStyles} />
 

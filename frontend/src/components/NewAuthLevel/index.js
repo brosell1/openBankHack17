@@ -26,7 +26,7 @@ class NewAuthLevel extends Component {
           <div style={containerStyle}>
             <TextField type='text' hintText="Auth Level Name" style={styles}/>
             <TextField type='number' hintText="Max Transactions" style={styles}/>
-            <TextField type='number' hintText="Transaction Amount" style={styles}/>
+            <TextField type='number' hintText="Max Transaction Amount" style={styles}/>
             <RaisedButton onClick={this.props.handleSnackBar} fullWidth backgroundColor='#c34433' labelColor='#fff' label="Create" style={buttonStyles} />
           </div>
       </div>
