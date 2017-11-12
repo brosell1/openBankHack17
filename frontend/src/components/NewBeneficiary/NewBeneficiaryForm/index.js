@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const styles = {
+  'column-count': '2',
+  'padding-right': '28%',
+  'padding-left': '28%',
+  'position': 'absolute',
+  'top': '50%',
+  'transform': 'translateY(-50%)'
+};
+const gap = {
+  'margin-bottom': '1em'
+};
 
 class NewBeneficiaryForm extends Component {
   render() {
     return (
-      <div className="NewBeneficiaryForm">
-          <label for="asset_class">Asset Class:</label>
-          <input type="text" class="form-control" id="asset_class" />
-          <label for="asset_type">Asset Type:</label>
-          <input type="text" class="form-control" id="asset_type" />
-          <label for="person">Beneficiary Name:</label>
-          <input type="text" class="form-control" id="person" />
-          <label for="company">Company Name:</label>
-          <input type="text" class="form-control" id="company" />
-          <label for="iban">IBAN:</label>
-          <input type="text" class="form-control" id="iban" />
-          <label for="bic_swift">BIC SWIFT:</label>
-          <input type="text" class="form-control" id="bic_swift" />
-          <label for="uk_sort_code">Sort Code:</label>
-          <input type="text" class="form-control" id="uk_sort_code" />
+      <div className="NewBeneficiaryForm" style={styles}>
+          <TextField style={gap} type="text" hintText="Asset Class" id="asset_class" />
+          <TextField style={gap} type="text" hintText="Asset Type" id="asset_type" />
+          <TextField style={gap} type="text" hintText="Beneficiary Name" id="person" />
+          <TextField style={gap} type="text" hintText="Company Name" id="company" />
+          <TextField style={gap} type="text" hintText="IBAN" id="iban" />
+          <TextField style={gap} type="text" hintText="Bic_swift" id="bic_swift" />
+          <TextField style={gap} type="text" hintText="Sort code" id="uk_sort_code" />
+          <RaisedButton style={gap} backgroundColor="#c34433" labelColor="#fff" fullWidth label="Create" onClick={this.props.onClick} />
       </div>
     );
   }
