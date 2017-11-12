@@ -8,6 +8,7 @@ class NewTeamMember extends Component {
         <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.props.handleLogoutClick} pageTitle="New Team Member"/>
         <input type='email'/>
         <input type='text'/>
+        <input type='checkbox' />
         <button>Create Team Member</button>
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from './LoginForm'
-import LoginButton from './LoginButton'
+import LoginButton from './LogInButton'
 import Paper from 'material-ui/Paper';
 
 
