@@ -46,13 +46,22 @@ class Notifications extends Component {
               {/* {this.props.approvedNotifications.map((item, ind) => {
                 <NotificationItem data={item}/>
               })} */}
-              <MenuItem onClick={this.handleClose}>Menu Item 1</MenuItem>
+              <MenuItem onClick={this.handleClose}><span style={{"font-size": "0.85em", "background-color": "#cdf7cd"}}>Transaction #132 approved by Imran</span></MenuItem>
+              <MenuItem onClick={this.handleClose}><span style={{"font-size": "0.85em", "background-color": "#f7e1ed"}}>Transaction #128 rejected by Imran</span></MenuItem>
+              <MenuItem onClick={this.handleClose}><span style={{"font-size": "0.85em", "background-color": "#cdf7cd"}}>Transaction #122 approved by Elizabeth</span></MenuItem>
+              <MenuItem onClick={this.handleClose}><span style={{"font-size": "0.85em", "background-color": "#cdf7cd"}}>Transaction #114 approved by Imran</span></MenuItem>
             </Tab>
             <Tab label="Pending">
               {/* {this.props.pendingNotifications.map((item, ind) => {
                 <NotificationItem data={item}/>
               })} */}
-              <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem>
+              <MenuItem onClick={this.handleClose}><span style={{"font-size": "0.85em"}}>Transaction #143 pending</span></MenuItem>
+              <MenuItem onClick={this.handleClose}><span style={{"font-size": "0.85em"}}>Transaction #148 pending</span></MenuItem>
+              <MenuItem onClick={this.handleClose}><span style={{"font-size": "0.85em"}}>Transaction #151 pending</span></MenuItem>
+              <MenuItem onClick={this.handleClose}><span style={{"font-size": "0.85em"}}>Transaction #152 pending</span></MenuItem>
+              <MenuItem onClick={this.handleClose}><span style={{"font-size": "0.85em"}}>Transaction #156 pending</span></MenuItem>
+              <MenuItem onClick={this.handleClose}><span style={{"font-size": "0.85em"}}>Transaction #158 pending</span></MenuItem>
+
             </Tab>
           </Tabs>
         </Drawer>
