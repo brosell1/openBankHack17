@@ -9,7 +9,7 @@ class NewTransaction extends Component {
     return (
       <div className="NewTransaction">
         <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.props.handleLogoutClick} pageTitle="New Transaction"/>
-        <NewTransactionForm beneficiaries={this.props.beneficiaries} ledgers={this.props.ledgers} />
+        <NewTransactionForm handleSnackBar={this.props.handleSnackBar} beneficiaries={this.props.beneficiaries} ledgers={this.props.ledgers} />
       </div>
     );
   }
