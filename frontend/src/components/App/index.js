@@ -211,11 +211,11 @@ class App extends Component {
       }
       // transaction list, done
       if (isLoggedIn && listTransactions) {
-        return (<LedgerTransactions onClick={this.handleGoTo} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<LedgerTransactions iban={this.state.ledgers[0].iban} onClick={this.handleGoTo} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
       // new homepage, done
       if (isLoggedIn) {
-        return (<HomePage onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<HomePage ledgers={this.state.ledgers} onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
     }
   }

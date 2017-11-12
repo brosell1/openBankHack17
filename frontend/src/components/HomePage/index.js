@@ -29,31 +29,10 @@ const styles = {
   }
 };
 
-const tableData = [
-  {
-    bank: 'Example Bank',
-    iban: '453216874333',
-    balance: '£25,142'
-  }, {
-    bank: 'Example Bank',
-    iban: '124532784114',
-    balance: '£61,344'
-  }, {
-    bank: 'Example Bank',
-    iban: '785415233652',
-    balance: '£12,354'
-  }, {
-    bank: 'Example Bank',
-    iban: '654122317251',
-    balance: '£2,522'
-  }, {
-    bank: 'Example Bank',
-    iban: '355212649727',
-    balance: '£9,421'
-  }
-];
 
 class HomePage extends Component {
+
+
 
   state = {
     fixedHeader: true,
@@ -74,6 +53,21 @@ class HomePage extends Component {
   };
 
   render() {
+    const tableData = [
+      {
+        bank: this.props.ledgers[0].partner_product,
+        iban: this.props.ledgers[0].iban,
+        balance: this.props.ledgers[0].amount
+      }, {
+        bank: this.props.ledgers[1].partner_product,
+        iban: this.props.ledgers[1].iban,
+        balance: this.props.ledgers[1].amount
+      }, {
+        bank: this.props.ledgers[2].partner_product,
+        iban: this.props.ledgers[2].iban,
+        balance: this.props.ledgers[2].amount
+      }
+    ];
     return (
       <div className="HomePage">
         <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.props.handleLogoutClick} pageTitle="Home"/>
