@@ -13,12 +13,12 @@ class App extends Component {
   constructor(props) {
      super(props);
      this.state = {
-       isLoggedIn: false,
-       isAdmin: false,
+       isLoggedIn: true,
+       isAdmin: true,
        listTransactions: false,
        newTransaction: false,
        newBulkTransaction: false,
-       newTeamMember: false,
+       newTeamMember: true,
        newBeneficiary: false,
        newAuthLevel: false,
        error: false,
@@ -127,7 +127,6 @@ class App extends Component {
 
    render() {
      const {isLoggedIn, isAdmin, listTransactions, newTransaction, newBulkTransaction, newTeamMember, newBeneficiary, newAuthLevel, error} = this.state
-
      // login page, wrong password
      if (!isLoggedIn && error) {
        return (
