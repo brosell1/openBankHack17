@@ -33,19 +33,23 @@ const tableData = [
   {
     bank: 'Example Bank',
     iban: '453216874333',
-    balance: '£25,142'
+    balance: '£25,142',
+    id:1
   }, {
     bank: 'Example Bank',
     iban: '124532784114',
-    balance: '£61,344'
+    balance: '£61,344',
+    id:2
   }, {
     bank: 'Example Bank',
     iban: '785415233652',
-    balance: '£12,354'
+    balance: '£12,354',
+    id:3
   }, {
     bank: 'Example Bank',
     iban: '654122317251',
-    balance: '£2,522'
+    balance: '£2,522',
+    id:3
   }, {
     bank: 'Example Bank',
     iban: '355212649727',
@@ -82,7 +86,6 @@ class HomePage extends Component {
           <br/>
           <Table height={this.state.height} fixedHeader={this.state.fixedHeader} fixedFooter={this.state.fixedFooter} selectable={this.state.selectable} multiSelectable={this.state.multiSelectable}>
             <TableHeader displaySelectAll={this.state.showCheckboxes} adjustForCheckbox={this.state.showCheckboxes} enableSelectAll={this.state.enableSelectAll}>
-
               <TableRow>
                 <TableHeaderColumn tooltip="The Name of Bank">
                   Name of Bank
@@ -97,6 +100,7 @@ class HomePage extends Component {
                   <TableRowColumn>{row.bank}</TableRowColumn>
                   <TableRowColumn>{row.iban}</TableRowColumn>
                   <TableRowColumn>{row.balance}</TableRowColumn>
+                  <TableRowColumn><button  onClick={() => this.props.handleGoToList(row.id)}>Transactions</button></TableRowColumn>
                 </TableRow>
               ))}
             </TableBody>

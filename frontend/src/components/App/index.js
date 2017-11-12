@@ -29,6 +29,7 @@ class App extends Component {
       approvedNotifications: [],
       pendingNotifications: [],
       ledgerIds:[],
+      listId: '',
       ledgers: [],
       transactions: [],
       transaction:{},
@@ -42,6 +43,10 @@ class App extends Component {
 
   handleGoTo = (page) => {
     this.setState({[page]: true});
+  }
+
+  handleGoToList = (e) => {
+    this.setState({listId: e, listTransactions: true});
   }
 
   handleReturn = (event) => {
@@ -211,11 +216,11 @@ class App extends Component {
       }
       // transaction list, done
       if (isLoggedIn && listTransactions) {
-        return (<LedgerTransactions onClick={this.handleGoTo} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<LedgerTransactions listId={this.state.listId} onClick={this.handleGoTo} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
       // new homepage, done
       if (isLoggedIn) {
-        return (<HomePage onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<HomePage handleGoToList={this.handleGoToList} onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
     }
   }
