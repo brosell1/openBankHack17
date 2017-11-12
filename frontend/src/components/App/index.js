@@ -23,6 +23,7 @@ class App extends Component {
       newAuthLevel: false,
       error: false,
       user: '',
+      snackBar:false,
       password: '',
       userDetails: {},
       authLevelDetails: {},
@@ -45,21 +46,31 @@ class App extends Component {
     this.setState({[page]: true});
   }
 
+
+   handleSnackBar = (event) => {
+     event.preventDefault();
+     this.handleReturn(event);
+     this.setState({
+       snackBar: true,
+     });
+   }
+
+   handleReturn = (event) => {
+     event.preventDefault();
+     this.setState((prevState) => ({
+       isLoggedIn: true,
+       isAdmin: prevState.isAdmin,
+       listTransactions: false,
+       newTransaction: false,
+       newBulkTransaction: false,
+       newTeamMember: false,
+       newBeneficiary: false,
+       newAuthLevel: false,
+       snackBar: false,
+
   handleGoToList = (e) => {
     this.setState({listId: e, listTransactions: true});
   }
-
-  handleReturn = (event) => {
-    event.preventDefault();
-    this.setState((prevState) => ({
-      isLoggedIn: true,
-      isAdmin: prevState.isAdmin,
-      listTransactions: false,
-      newTransaction: false,
-      newBulkTransaction: false,
-      newTeamMember: false,
-      newBeneficiary: false,
-      newAuthLevel: false
     }));
   }
 
@@ -196,23 +207,23 @@ class App extends Component {
       }
       // create a new user page, done
       if (isLoggedIn && isAdmin && newTeamMember) {
-        return (<NewTeamMember handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<NewTeamMember handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
       // create a new auth level, done
       if (isLoggedIn && isAdmin && newAuthLevel) {
-        return (<NewAuthLevel handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<NewAuthLevel handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
       // create new transactions, done
       if (isLoggedIn && newTransaction) {
-        return (<NewTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} beneficiaries={this.state.beneficiaries} ledgers={this.state.ledgers}/>)
+        return (<NewTransaction handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} beneficiaries={this.state.beneficiaries} ledgers={this.state.ledgers}/>)
       }
       // create new bulk transaction, done
       if (isLoggedIn && newBulkTransaction) {
-        return (<BulkTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<BulkTransaction handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
       // new newBeneficiary, done
       if (isLoggedIn && newBeneficiary) {
-        return (<NewBeneficiary handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<NewBeneficiary handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
       // transaction list, done
       if (isLoggedIn && listTransactions) {
@@ -220,7 +231,7 @@ class App extends Component {
       }
       // new homepage, done
       if (isLoggedIn) {
-        return (<HomePage handleGoToList={this.handleGoToList} onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<HomePage handleSnackBar={this.state.snackBar} handleGoToList={this.handleGoToList} onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
     }
   }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Notifications from '../Notifications'
 import AccountsBox from './AccountsBox';
+import Snackbar from 'material-ui/Snackbar';
 import ButtonBar from './ButtonBar';
 import {
   Table,
@@ -109,6 +110,11 @@ class HomePage extends Component {
 
           <ButtonBar isAdmin={this.props.isAdmin} onClick={this.props.onClick}/>
         </div>
+        <Snackbar
+          open={this.props.snackBar}
+          message="Form submitted"
+          autoHideDuration={4000}
+        />
       </div>
     );
   }

@@ -53,7 +53,8 @@ class NewTransactionForm extends Component {
                   {items}
                 </SelectField></div>
                 <TextField style={{'margin-bottom': '1em'}} fullWidth={true} hintText="Reference"></TextField>
-                <div style={style.flex}><RaisedButton label="Submit" backgroundColor="#c34433" labelColor="#fff" /></div>
+                <div style={style.flex}><RaisedButton onClick={this.props.handleSnackBar} label="Submit" backgroundColor="#c34433" labelColor="#fff" /></div>
+
         </Paper>
       </div>
     );
