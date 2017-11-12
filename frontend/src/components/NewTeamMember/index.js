@@ -28,8 +28,10 @@ class NewTeamMember extends Component {
         <div style={containerStyle}>
           <TextField type='email' hintText="Username" style={styles}/>
           <TextField type='text' hintText="Password" style={styles}/>
-          <Checkbox label="Is he admin?" style={styles}/>
-          <RaisedButton fullWidth backgroundColor="#c34433" labelColor="#fff" label="Create" style={buttonStyles} />
+
+          <Checkbox label="Admin?" style={styles}/>
+          <RaisedButton onClick={this.props.handleSnackBar} fullWidth backgroundColor="#c34433" labelColor="#fff" label="Create" style={buttonStyles} />
+
         </div>
       </div>
     );

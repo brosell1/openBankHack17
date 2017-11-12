@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Notifications from '../Notifications'
 import AccountsBox from './AccountsBox';
+import Snackbar from 'material-ui/Snackbar';
 import ButtonBar from './ButtonBar';
 import {
   Table,
@@ -31,9 +32,6 @@ const styles = {
 
 
 class HomePage extends Component {
-
-
-
   state = {
     fixedHeader: true,
     fixedFooter: true,
@@ -76,7 +74,6 @@ class HomePage extends Component {
           <br/>
           <Table height={this.state.height} fixedHeader={this.state.fixedHeader} fixedFooter={this.state.fixedFooter} selectable={this.state.selectable} multiSelectable={this.state.multiSelectable}>
             <TableHeader displaySelectAll={this.state.showCheckboxes} adjustForCheckbox={this.state.showCheckboxes} enableSelectAll={this.state.enableSelectAll}>
-
               <TableRow>
                 <TableHeaderColumn tooltip="The Name of Bank">
                   Name of Bank
@@ -91,6 +88,7 @@ class HomePage extends Component {
                   <TableRowColumn>{row.bank}</TableRowColumn>
                   <TableRowColumn>{row.iban}</TableRowColumn>
                   <TableRowColumn>{row.balance}</TableRowColumn>
+                  <TableRowColumn><button  onClick={() => this.props.handleGoToList(row.id)}>Transactions</button></TableRowColumn>
                 </TableRow>
               ))}
             </TableBody>
@@ -99,6 +97,11 @@ class HomePage extends Component {
 
           <ButtonBar isAdmin={this.props.isAdmin} onClick={this.props.onClick}/>
         </div>
+        <Snackbar
+          open={this.props.snackBar}
+          message="Form submitted"
+          autoHideDuration={4000}
+        />
       </div>
     );
   }

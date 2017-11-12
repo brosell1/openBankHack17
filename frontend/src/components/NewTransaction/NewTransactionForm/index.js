@@ -39,7 +39,7 @@ class NewTransactionForm extends Component {
     // })
     return (
       <div className="NewTransactionForm">
-        <Paper zDepth={2} style={{margin: '0 10vw', padding: '10px', backgroundColor: '#c34433'}}>
+        <Paper zDepth={1} style={{margin: '3em 10vw', padding: '1em 5em'}}>
                 <div style={style.flex}><SelectField child={style.valign} onChange={this.handleChange} floatingLabelText="Account From">
                   {/* {beneficiaries} */}
                   {items}
@@ -52,8 +52,9 @@ class NewTransactionForm extends Component {
                   <MenuItem primaryText="bumbo" /> */}
                   {items}
                 </SelectField></div>
-                <TextField fullWidth={true} hintText="Reference"></TextField>
-                <div style={style.flex}><RaisedButton label="Submit" /></div>
+                <TextField style={{'margin-bottom': '1em'}} fullWidth={true} hintText="Reference"></TextField>
+                <div style={style.flex}><RaisedButton onClick={this.props.handleSnackBar} label="Submit" backgroundColor="#c34433" labelColor="#fff" /></div>
+
         </Paper>
       </div>
     );
