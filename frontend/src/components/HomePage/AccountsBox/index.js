@@ -4,8 +4,7 @@ class AccountsBox extends Component {
   render() {
     return (
       <div className="AccountsBox">
-        
-        HomePage
+
       </div>
     );
   }

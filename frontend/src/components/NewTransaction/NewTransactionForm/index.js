@@ -26,22 +26,18 @@ class NewTransactionForm extends Component {
     return (
       <div className="NewTransactionForm">
         {/* <Paper zDepth={2}> */}
-          <SelectField onChange={this.handleChange} floatingLabelText="Beneficiary">
+          <SelectField onChange={this.handleChange} floatingLabelText="Account From">
             {/* {beneficiaries} */}
-            {/* <MenuItem primaryText={null} />
-            <MenuItem primaryText="bumbo" />
-            <MenuItem primaryText="bumbo" />
-            <MenuItem primaryText="bumbo" /> */}
             {items}
           </SelectField>
-          <SelectField floatingLabelText="Company Account">
+          <TextField hintText="Amount"></TextField>
+          <SelectField floatingLabelText="Account To">
             {/* {accounts} */}
             {/* <MenuItem primaryText="bumbo" />
             <MenuItem primaryText="bumbo" />
             <MenuItem primaryText="bumbo" /> */}
             {items}
           </SelectField><br></br>
-          <TextField hintText="Amount"></TextField>
           <TextField hintText="Reference"></TextField>
         {/* </Paper> */}
       </div>
