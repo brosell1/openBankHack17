@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Notifications from '../Notifications'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -18,8 +19,8 @@ const containerStyle = {
 const buttonStyles = {
   'display': 'inline-block',
 }
-
 class NewTeamMember extends Component {
+
   render() {
     return (
       <div className="NewTeamMember">

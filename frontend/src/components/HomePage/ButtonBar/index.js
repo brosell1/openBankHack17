@@ -12,7 +12,6 @@ const styles = {
   'margin-right': '50px',
   width: '200px',
   backgroundColor: '#c34433',
-  color: '#fff'
 }
 
 class ButtonBar extends Component {
@@ -20,9 +19,9 @@ class ButtonBar extends Component {
     return (
       <div className="ButtonBar">
         {/* try make inner text white */}
-        <RaisedButton style={styles} buttonStyles={styles.color} backgroundColor='#c34433' onClick={()=> this.props.onClick('NewTeamMember')}>New Team Member</RaisedButton>
-        <RaisedButton style={styles} backgroundColor='#c34433' onClick={()=> this.props.onClick('NewBeneficiary')}>New Beneficiary</RaisedButton>
-        <RaisedButton style={styles} backgroundColor='#c34433' onClick={()=> this.props.onClick('newTransaction')}>New Single Transaction</RaisedButton>
+        <RaisedButton style={styles} disabledLabelColor labelColor='#fff' backgroundColor='#c34433' onClick={()=> this.props.onClick('NewTeamMember')} label='New Team Member'/>
+        <RaisedButton style={styles} backgroundColor='#c34433' disabledLabelColor labelColor='#fff' onClick={()=> this.props.onClick('NewBeneficiary')} label='New Beneficiary'/>
+        <RaisedButton style={styles} backgroundColor='#c34433' disabledLabelColor labelColor='#fff' onClick={()=> this.props.onClick('newTransaction')} label='New Single Transaction' />
         {this.props.isAdmin && <RaisedButton style={styles} backgroundColor='#c34433' onClick={()=> this.props.onClick('newBulkTransaction')}>New Bulk Transaction</RaisedButton>}
       </div>
     );
