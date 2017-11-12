@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import TextField from 'material-ui/TextField';
+
 
 class LoginForm extends Component {
   render() {
     return (
       <div className="LoginForm">
-        <input placeholder='Username' name='user' onChange={this.props.onChange} />
-        <input placeholder='Password' name='password' onChange={this.props.onChange} />
+        <TextField hintText='Username' name='user' onChange={this.props.onChange} />
+        <br />
+        <TextField hintText='Password' name='password' onChange={this.props.onChange} />
       </div>
     );
   }
