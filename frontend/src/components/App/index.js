@@ -215,7 +215,7 @@ class App extends Component {
       }
       // create new transactions, done
       if (isLoggedIn && newTransaction) {
-        return (<NewTransaction handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} beneficiaries={this.state.beneficiaries} ledgers={this.state.ledgers}/>)
+        return (<NewTransaction handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} beneficiaries={this.state.beneficiaries} ledgers={this.state.ledgers} handleChange={this.handleInputChange}/>)
       }
       // create new bulk transaction, done
       if (isLoggedIn && newBulkTransaction) {
@@ -227,11 +227,11 @@ class App extends Component {
       }
       // transaction list, done
       if (isLoggedIn && listTransactions) {
-        return (<LedgerTransactions listId={this.state.listId} onClick={this.handleGoTo} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<LedgerTransactions listId={this.state.listId} iban={this.state.ledgers[0].iban} onClick={this.handleGoTo} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
       // new homepage, done
       if (isLoggedIn) {
-        return (<HomePage snackBar={this.state.snackBar} handleGoToList={this.handleGoToList} onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
+        return (<HomePage snackBar={this.state.snackBar} handleGoToList={this.handleGoToList} ledgers={this.state.ledgers} onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick}/>)
       }
     }
   }

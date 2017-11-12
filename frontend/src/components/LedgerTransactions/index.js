@@ -37,92 +37,75 @@ const styles = {
   }
 };
 
-const tableData = [
-{
-  ref: 'Recruitment Fee',
-  iban: '471269882531',
-  date: '10/11/17',
-  amount: '£2375',
-},
-{
-  ref: 'MoT Service',
-  iban: '307712546893',
-  date: '10/11/17',
-  amount: '£230',
-},
-{
-  ref: 'Rent Monthly',
-  iban: '254473043288',
-  date: '07/11/17',
-  amount: '£850',
-},
-{
-  ref: 'Post Office Mail',
-  iban: '245614785236',
-  date: '06/11/17',
-  amount: '£9.50',
-},
-{
-  ref: 'Broadband Monthly',
-  iban: '145236982127',
-  date: '02/11/17',
-  amount: '£45',
-},
-{
-  ref: 'Electricity Bill Monthly',
-  iban: '673216334333',
-  date: '28/10/17',
-  amount: '£173.61',
-},
-];
+
+
 
 class LedgerTransactions extends Component {
+constructor(props) {
+  super(props);
+  this.state={transactions:[],style:{fixedHeader: true,
+  fixedFooter: true,
+  stripedRows: false,
+  showRowHover: false,
+  selectable: true,
+  multiSelectable: false,
+  enableSelectAll: false,
+  deselectOnClickaway: true,
+  showCheckboxes: false,
+  height: '200px',
+  width: '80vw'}
+}
+}
 
-  state = {
-      fixedHeader: true,
-      fixedFooter: true,
-      stripedRows: false,
-      showRowHover: false,
-      selectable: true,
-      multiSelectable: false,
-      enableSelectAll: false,
-      deselectOnClickaway: true,
-      showCheckboxes: false,
-      height: '200px',
-      width: '80vw'
-    };
+componentDidMount() {
+  this.fetchTrans("5a063c8e-f0f7-4dbc-84df-c71ec461efed");
+}
 
   handleChange = (event) => {
     this.setState({height: event.target.value});
   };
 
+  fetchTrans = (ledgerId) => {fetch(`/createrequest`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({method: "get", "path": `v1/customer/ledgers/${ledgerId}/entries`, "requestFields": {}})
+  }).then((response) => response.json())
+  .then(value => {
+    console.log(value.payload)
+    this.setState({transactions:value.payload});
+  })
+}
+
   render() {
+    var tableData=this.state.transactions
     return (
       <div className="LedgerTransactions">
         <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.props.handleLogoutClick} pageTitle="Transactions"/>
 
         <div style={styles.root}>
-        <TransactionListBox />
+        <TransactionListBox iban={this.props.iban}/>
 
         <br/>
-        <Table height={this.state.height} fixedHeader={this.state.fixedHeader} fixedFooter={this.state.fixedFooter} selectable={this.state.selectable} multiSelectable={this.state.multiSelectable}>
-          <TableHeader displaySelectAll={this.state.showCheckboxes} adjustForCheckbox={this.state.showCheckboxes} enableSelectAll={this.state.enableSelectAll}>
+        <Table height={this.state.style.height} fixedHeader={this.state.style.fixedHeader} fixedFooter={this.state.style.fixedFooter} selectable={this.state.style.selectable} multiSelectable={this.state.style.multiSelectable}>
+          <TableHeader displaySelectAll={this.state.style.showCheckboxes} adjustForCheckbox={this.state.style.showCheckboxes} enableSelectAll={this.state.style.enableSelectAll}>
 
             <TableRow>
               <TableHeaderColumn tooltip="Reference">
                 Reference
               </TableHeaderColumn>
-              <TableHeaderColumn tooltip="Transactions sent to following IBAN">Recipient IBAN</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Transactions sent to following IBAN">Transaction Type</TableHeaderColumn>
               <TableHeaderColumn tooltip="Date of transaction">Date of Transaction</TableHeaderColumn>
               <TableHeaderColumn tooltip="The amount sent from each transaction">Amount</TableHeaderColumn>
             </TableRow>
           </TableHeader>
-          <TableBody displayRowCheckbox={this.state.showCheckboxes} deselectOnClickaway={this.state.deselectOnClickaway} showRowHover={this.state.showRowHover} stripedRows={this.state.stripedRows}>
+          <TableBody displayRowCheckbox={this.state.style.showCheckboxes} deselectOnClickaway={this.state.style.deselectOnClickaway} showRowHover={this.state.style.showRowHover} stripedRows={this.state.style.stripedRows}>
             {tableData.map((row, index) => (
               <TableRow key={index}>
-                <TableRowColumn>{row.ref}</TableRowColumn>
-                <TableRowColumn>{row.iban}</TableRowColumn>
-                <TableRowColumn>{row.date}</TableRowColumn>
+                <TableRowColumn>{row.transaction_id}</TableRowColumn>
+                <TableRowColumn>{row.ledger_entry_type}</TableRowColumn>
+                <TableRowColumn>{row.created_at}</TableRowColumn>
                 <TableRowColumn>{row.amount}</TableRowColumn>
               </TableRow>
             ))}
@@ -138,6 +121,7 @@ class LedgerTransactions extends Component {
       </div>
     );
   }
+
 }
 
 export default LedgerTransactions;
