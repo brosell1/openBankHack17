@@ -7,9 +7,9 @@ import Paper from 'material-ui/Paper';
 const styles = {
   root: {
     display: 'flex',
-    'align-items': 'center',
-    'justify-content': 'flex-end',
-    'flex-direction': 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    flexDirection: 'column',
     padding: '35vh',
     backgroundColor: '#c34433'
   },
