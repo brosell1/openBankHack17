@@ -14,7 +14,7 @@ class App extends Component {
     super(props);
     this.state = {
       isLoggedIn: false,
-      isAdmin: false,
+      isAdmin: true,
       listTransactions: false,
       newTransaction: false,
       newBulkTransaction: false,
