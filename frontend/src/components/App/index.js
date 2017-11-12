@@ -71,7 +71,7 @@ class App extends Component {
   }
 
   handleGoToList = (e) => {
-    this.setState({listId: e, listTransactions: true});
+    this.setState(preState =>({listId: e, listTransactions: true}));
   }
 
   handleInputChange = (event) => {
@@ -105,19 +105,7 @@ class App extends Component {
 
   handleLoginClick = (event) => {
     event.preventDefault();
-    fetch('/teammembers', {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify({username: this.state.user, password: this.state.password})
-    }).then(response => response.json()).then(value => value.payload
-      ? this.setState(prevState => ({
-        isLoggedIn: !prevState.isLoggedIn
-      }))
-      : this.setState((prevState) => ({
-        error: !prevState.error
-      })))
+    this.setState(preState =>({isLoggedIn: true}))
   }
 
   getLedgers = () => {

@@ -55,15 +55,18 @@ class HomePage extends Component {
       {
         bank: this.props.ledgers[0].partner_product,
         iban: this.props.ledgers[0].iban,
-        balance: this.props.ledgers[0].amount
+        balance: this.props.ledgers[0].amount,
+        id: this.props.ledgers[0].ledger_id
       }, {
         bank: this.props.ledgers[1].partner_product,
         iban: this.props.ledgers[1].iban,
-        balance: this.props.ledgers[1].amount
+        balance: this.props.ledgers[1].amount,
+        id: this.props.ledgers[1].ledger_id
       }, {
         bank: this.props.ledgers[2].partner_product,
         iban: this.props.ledgers[2].iban,
-        balance: this.props.ledgers[2].amount
+        balance: this.props.ledgers[2].amount,
+        id: this.props.ledgers[2].ledger_id
       }
     ];
     return (
