@@ -137,49 +137,49 @@ class App extends Component {
          </div>
        )
      }
-     // login page
+     // login page, done
      if (!isLoggedIn) {
        return (
          <Login onChange={this.handleInputChange} onClick={this.handleLoginClick} />
        )
      }
-     // create a new user page
+     // create a new user page, done
      if (isLoggedIn && isAdmin && newTeamMember) {
        return (
          <NewTeamMember handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
-     // create a new auth level
+     // create a new auth level, done
      if (isLoggedIn && isAdmin && newAuthLevel) {
        return (
          <NewAuthLevel handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
-     // create new transactions
+     // create new transactions, done
      if (isLoggedIn && newTransaction) {
        return (
          <NewTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} beneficiaries={this.state.beneficiaries} ledgers={this.state.ledgers}/>
        )
      }
-     // create new bulk transaction
+     // create new bulk transaction, done
      if (isLoggedIn && newBulkTransaction) {
        return (
          <BulkTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
-     // new newBeneficiary
+     // new newBeneficiary, done
      if (isLoggedIn && newBeneficiary) {
        return (
          <NewBeneficiary handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
-     // transaction list
+     // transaction list, done
      if (isLoggedIn && listTransactions) {
        return (
-         <LedgerTransactions handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
+         <LedgerTransactions onClick={this.handleGoTo} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
-     // new homepage
+     // new homepage, done
      if (isLoggedIn) {
        return (
          <HomePage onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />

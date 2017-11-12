@@ -5,8 +5,8 @@ class ButtonBar extends Component {
     if(this.props.isAdmin === true){
     return (
       <div className="ButtonBar">
-        <button onClick={()=> this.props.onClick('NewTeamMember')}>New Team Member</button>
-        <button onClick={()=> this.props.onClick('NewBeneficiary')}>New Beneficiary</button>
+        <button onClick={()=> this.props.onClick('newTeamMember')}>New Team Member</button>
+        <button onClick={()=> this.props.onClick('newBeneficiary')}>New Beneficiary</button>
         <button onClick={()=> this.props.onClick('newTransaction')}>New Single Transaction</button>
         <button onClick={()=> this.props.onClick('newBulkTransaction')}>New Bulk Transaction</button>
       </div>
@@ -15,7 +15,7 @@ class ButtonBar extends Component {
   if(this.props.isAdmin === false){
   return (
     <div className="ButtonBar">
-      <button onClick={()=> this.props.onClick('NewBeneficiary')}>New Beneficiary</button>
+      <button onClick={()=> this.props.onClick('newBeneficiary')}>New Beneficiary</button>
       <button onClick={()=> this.props.onClick('newTransaction')}>New Single Transaction</button>
       <button onClick={()=> this.props.onClick('newBulkTransaction')}>New Bulk Transaction</button>
     </div>
