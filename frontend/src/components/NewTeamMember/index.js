@@ -6,6 +6,9 @@ class NewTeamMember extends Component {
     return (
       <div className="NewTeamMember">
         <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.props.handleLogoutClick} pageTitle="New Team Member"/>
+        <input type='email'/>
+        <input type='text'/>
+        <button>Create Team Member</button>
       </div>
     );
   }
