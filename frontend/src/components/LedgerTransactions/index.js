@@ -58,7 +58,7 @@ constructor(props) {
 }
 
 componentDidMount() {
-  this.fetchTrans("5a063c8e-f0f7-4dbc-84df-c71ec461efed");
+  this.fetchTrans(this.props.listId);
 }
 
   handleChange = (event) => {
@@ -85,7 +85,7 @@ componentDidMount() {
         <Notifications handleReturn={this.props.handleReturn} handleLogoutClick={this.props.handleLogoutClick} pageTitle="Transactions"/>
 
         <div style={styles.root}>
-        <TransactionListBox iban={this.props.iban}/>
+        <TransactionListBox listId={this.props.listId}/>
 
         <br/>
         <Table height={this.state.style.height} fixedHeader={this.state.style.fixedHeader} fixedFooter={this.state.style.fixedFooter} selectable={this.state.style.selectable} multiSelectable={this.state.style.multiSelectable}>

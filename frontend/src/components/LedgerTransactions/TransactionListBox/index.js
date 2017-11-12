@@ -14,7 +14,7 @@ class TransactionsListBox extends Component {
       <div className="TransactionsListBox">
         <h1> Transactions History </h1>
         {/* add {this.props.iban} below title */}
-        <h4 style={styles}> IBAN - {this.props.iban} </h4>
+        <h4 style={styles}> IBAN - {this.props.listId} </h4>
 
       </div>
     );
