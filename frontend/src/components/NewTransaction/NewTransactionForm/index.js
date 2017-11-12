@@ -53,7 +53,7 @@ class NewTransactionForm extends Component {
                   {items}
                 </SelectField></div>
                 <TextField fullWidth={true} hintText="Reference"></TextField>
-                <div style={style.flex}><RaisedButton label="Submit" /></div>
+                <div style={style.flex}><RaisedButton onClick={this.props.handleSnackBar} label="Submit" /></div>
         </Paper>
       </div>
     );

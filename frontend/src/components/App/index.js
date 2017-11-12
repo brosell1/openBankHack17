@@ -13,14 +13,15 @@ class App extends Component {
   constructor(props) {
      super(props);
      this.state = {
-       isLoggedIn: true,
+       isLoggedIn: false,
        isAdmin: false,
        listTransactions: false,
        newTransaction: false,
-       newBulkTransaction: true,
+       newBulkTransaction: false,
        newTeamMember: false,
        newBeneficiary: false,
        newAuthLevel: false,
+       snackBar: false,
        error: false,
        user: '',
        password: '',
@@ -40,6 +41,14 @@ class App extends Component {
     });
    }
 
+   handleSnackBar = (event) => {
+     event.preventDefault();
+     this.handleReturn(event);
+     this.setState({
+       snackBar: true,
+     });
+   }
+
    handleReturn = (event) => {
      event.preventDefault();
      this.setState((prevState) => ({
@@ -51,6 +60,7 @@ class App extends Component {
        newTeamMember: false,
        newBeneficiary: false,
        newAuthLevel: false,
+       snackBar: false,
     }));
    }
 
@@ -145,31 +155,31 @@ class App extends Component {
      // create a new user page, done
      if (isLoggedIn && isAdmin && newTeamMember) {
        return (
-         <NewTeamMember handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
+         <NewTeamMember handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
      // create a new auth level, done
      if (isLoggedIn && isAdmin && newAuthLevel) {
        return (
-         <NewAuthLevel handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
+         <NewAuthLevel handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
      // create new transactions, done
      if (isLoggedIn && newTransaction) {
        return (
-         <NewTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} beneficiaries={this.state.beneficiaries} ledgers={this.state.ledgers}/>
+         <NewTransaction handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} beneficiaries={this.state.beneficiaries} ledgers={this.state.ledgers}/>
        )
      }
      // create new bulk transaction, done
      if (isLoggedIn && newBulkTransaction) {
        return (
-         <BulkTransaction handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
+         <BulkTransaction handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
      // new newBeneficiary, done
      if (isLoggedIn && newBeneficiary) {
        return (
-         <NewBeneficiary handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
+         <NewBeneficiary handleSnackBar={this.handleSnackBar} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
      // transaction list, done
@@ -181,7 +191,7 @@ class App extends Component {
      // new homepage, done
      if (isLoggedIn) {
        return (
-         <HomePage onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
+         <HomePage snackBar={this.state.snackBar} onClick={this.handleGoTo} isAdmin={this.state.isAdmin} handleReturn={this.handleReturn} handleLogoutClick={this.handleLogoutClick} />
        )
      }
    }

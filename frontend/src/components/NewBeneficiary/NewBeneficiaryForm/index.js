@@ -25,7 +25,7 @@ class NewBeneficiaryForm extends Component {
           <TextField style={gap} type="text" hintText="IBAN" id="iban" />
           <TextField style={gap} type="text" hintText="Bic_swift" id="bic_swift" />
           <TextField style={gap} type="text" hintText="Sort code" id="uk_sort_code" />
-          <RaisedButton style={gap} backgroundColor="#c34433" labelColor="#fff" fullWidth label="Create" onClick={this.props.onClick} />
+          <RaisedButton onClick={this.props.handleSnackBar} style={gap} backgroundColor="#c34433" labelColor="#fff" fullWidth label="Create" />
       </div>
     );
   }

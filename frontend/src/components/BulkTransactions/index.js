@@ -20,7 +20,7 @@ class BulkTransactions extends Component {
         <div style={{'text-align': 'center', 'padding': '2em'}}>
           <input type='file' multiple style={{'margin-bottom': '1em'}}/>
           <TextField multiline={true} rows={15} hintText="" style={style}/>
-          <RaisedButton backgroundColor='#c34433' labelColor='#fff' label="Approve"/>
+          <RaisedButton onClick={this.props.handleSnackBar} backgroundColor='#c34433' labelColor='#fff' label="Approve"/>
         </div>
       </div>
     );
