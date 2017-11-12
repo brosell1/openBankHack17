@@ -10,10 +10,11 @@ const styles = {
 class TransactionsListBox extends Component {
   render() {
     return (
+
       <div className="TransactionsListBox">
         <h1> Transactions History </h1>
         {/* add {this.props.iban} below title */}
-        <h4 style={styles}> IBAN - 453216874333 </h4>
+        <h4 style={styles}> IBAN - {this.props.iban} </h4>
 
       </div>
     );
