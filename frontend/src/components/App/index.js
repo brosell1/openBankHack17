@@ -127,7 +127,6 @@ class App extends Component {
 
    render() {
      const {isLoggedIn, isAdmin, listTransactions, newTransaction, newBulkTransaction, newTeamMember, newBeneficiary, newAuthLevel, error} = this.state
-
      // login page, wrong password
      if (!isLoggedIn && error) {
        return (

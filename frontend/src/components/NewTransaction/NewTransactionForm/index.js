@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
 
 // import Divider from 'material-ui/Divider';
-// import Paper from 'material-ui/Paper';
+import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const style = {
+  flex: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  valign: {
+    'vertical-align': 'top',
+    display: 'inline-block',
+    height: '72px'
+  }
+}
 
 class NewTransactionForm extends Component {
 
@@ -25,25 +39,22 @@ class NewTransactionForm extends Component {
     // })
     return (
       <div className="NewTransactionForm">
-        {/* <Paper zDepth={2}> */}
-          <SelectField onChange={this.handleChange} floatingLabelText="Beneficiary">
-            {/* {beneficiaries} */}
-            {/* <MenuItem primaryText={null} />
-            <MenuItem primaryText="bumbo" />
-            <MenuItem primaryText="bumbo" />
-            <MenuItem primaryText="bumbo" /> */}
-            {items}
-          </SelectField>
-          <SelectField floatingLabelText="Company Account">
-            {/* {accounts} */}
-            {/* <MenuItem primaryText="bumbo" />
-            <MenuItem primaryText="bumbo" />
-            <MenuItem primaryText="bumbo" /> */}
-            {items}
-          </SelectField><br></br>
-          <TextField hintText="Amount"></TextField>
-          <TextField hintText="Reference"></TextField>
-        {/* </Paper> */}
+        <Paper zDepth={2} style={{margin: '0 10vw', padding: '10px', backgroundColor: '#c34433'}}>
+                <div style={style.flex}><SelectField child={style.valign} onChange={this.handleChange} floatingLabelText="Account From">
+                  {/* {beneficiaries} */}
+                  {items}
+                </SelectField>
+                <TextField style={style.valign} hintText="Amount"></TextField>
+                <SelectField child={style.valign} floatingLabelText="Account To">
+                  {/* {accounts} */}
+                  {/* <MenuItem primaryText="bumbo" />
+                  <MenuItem primaryText="bumbo" />
+                  <MenuItem primaryText="bumbo" /> */}
+                  {items}
+                </SelectField></div>
+                <TextField fullWidth={true} hintText="Reference"></TextField>
+                <div style={style.flex}><RaisedButton label="Submit" /></div>
+        </Paper>
       </div>
     );
   }
