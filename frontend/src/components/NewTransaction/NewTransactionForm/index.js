@@ -40,7 +40,7 @@ class NewTransactionForm extends Component {
 
   render(props) {
 
-    const items = [
+    const fromItems = [
       <MenuItem key={1} value={1} primaryText="From-1" />,
       <MenuItem key={2} value={2} primaryText="From-2" />,
       <MenuItem key={3} value={3} primaryText="From-3" />,
@@ -48,7 +48,7 @@ class NewTransactionForm extends Component {
       <MenuItem key={5} value={5} primaryText="From-5" />,
       <MenuItem key={6} value={6} primaryText="From-6" />,
     ]
-    const items2 = [
+    const toItems = [
       <MenuItem key={1} value={1} primaryText="To-1" />,
       <MenuItem key={2} value={2} primaryText="To-2" />,
       <MenuItem key={3} value={3} primaryText="To-3" />,
@@ -67,7 +67,7 @@ class NewTransactionForm extends Component {
         <Paper zDepth={1} style={{margin: '3em 10vw', padding: '1em 5em'}}>
                 <div style={style.flex}><SelectField child={style.valign} value={this.state.fromValue} onChange={this.handleFromChange} floatingLabelText="Account From">
                   {/* {beneficiaries} */}
-                  {items}
+                  {fromItems}
                 </SelectField>
                 <TextField type="number" style={style.valign} hintText="Amount"></TextField>
                 <SelectField child={style.valign} value={this.state.toValue} onChange={this.handleToChange} floatingLabelText="Account To">
@@ -75,7 +75,7 @@ class NewTransactionForm extends Component {
                   {/* <MenuItem primaryText="bumbo" />
                   <MenuItem primaryText="bumbo" />
                   <MenuItem primaryText="bumbo" /> */}
-                  {items2}
+                  {toItems}
                 </SelectField></div>
                 <TextField style={{'margin-bottom': '1em'}} fullWidth={true} hintText="Reference"></TextField>
                 <div style={style.flex}><RaisedButton onClick={this.props.handleSnackBar} label="Submit" backgroundColor="#c34433" labelColor="#fff" /></div>
