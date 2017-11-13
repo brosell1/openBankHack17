@@ -65,7 +65,7 @@ class NewTransactionForm extends Component {
     return (
       <div className="NewTransactionForm">
         <Paper zDepth={1} style={{margin: '3em 10vw', padding: '1em 5em'}}>
-                <div style={style.flex}><SelectField className="from" child={style.valign} value={this.state.fromValue} onChange={this.handleFromChange} floatingLabelText="Account From">
+                <div style={style.flex}><SelectField child={style.valign} value={this.state.fromValue} onChange={this.handleFromChange} floatingLabelText="Account From">
                   {/* {beneficiaries} */}
                   {items}
                 </SelectField>
