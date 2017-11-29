@@ -24,6 +24,13 @@ const buttonStyles = {
 }
 class NewTeamMember extends Component {
 
+  constructor(props) {
+    super();
+    this.state = {value: 1};
+  }
+
+  handleChange = (event, index, value) => this.setState({value});
+
   render() {
     return (
       <div className="NewTeamMember">
@@ -32,10 +39,10 @@ class NewTeamMember extends Component {
           <TextField type='email' hintText="Username" style={styles}/>
           <TextField type='password' hintText="Password" style={styles}/>
 
-          <SelectField>
-            <MenuItem primaryText='Junior'/>
-            <MenuItem primaryText='Boss'/>
-            <MenuItem primaryText='Senior'/>
+          <SelectField value={this.state.value} onChange={this.handleChange}>
+            <MenuItem value={1} primaryText='Junior'/>
+            <MenuItem value={2} primaryText='Boss'/>
+            <MenuItem value={3} primaryText='Senior'/>
           </SelectField>
           <Checkbox label="Admin?" style={styles}/>
           <RaisedButton onClick={this.props.handleSnackBar} fullWidth backgroundColor="#c34433" labelColor="#fff" label="Create" style={buttonStyles} />
